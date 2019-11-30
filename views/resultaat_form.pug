@@ -1,0 +1,31 @@
+extends layout
+
+block content
+
+  if topError
+    h3 Er is iets fout gegaan
+  
+  h1 Nieuw resultaat
+  if errors 
+   ul
+    for error in errors
+     li#Error!= error.msg
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='team1') Team 1:
+      input#name.form-control(type='text' name='team1' value=(undefined===team1 ? '' : team1))
+    div.form-group
+      label(for='team2') Team 2:
+      input#name.form-control(type='text' name='team2' value=(undefined===team2 ? '' : team2))
+    div.form-group
+      label(for='score_t1') Score team 1:
+      input#name.form-control(type='number' name='score_t1' value=(undefined==score_t1 ? '' : score_t1))
+    div.form-group
+      label(for='score_t2') Score team 2:
+      input#name.form-control(type='number' name='score_t2' value=(undefined===score_t2 ? '' : score_t2))
+    div.form-group
+      label(for='opmerking') Opmerkingen:
+      input#name.form-control(type='text' name='opmerking' value=(undefined===opmerking ? '' : opmerking))
+    button.btn.btn-primary(type='submit') Submit
+

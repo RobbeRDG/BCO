@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+    h1 Resultaten
+
+    script(type='text/javascript').
+        (function($) {
+        var url = '/catalog/resultaten';
+
+        $.ajax({
+        type: 'GET',
+            url: url,
+            async: false,
+            jsonpCallback: 'callback',
+            contentType: "application/json",
+            dataType: 'jsonp',
+            success: function(json) {
+                console.log(JSON.stringify(json.topics));
+                $.each(json.topics, function(idx, topic){
+                    $("#nav").html('<a href="' + topic.link_src + '">' + topic.link_text + "</a>");
+                });
+            },
+            error: function(e) {
+            console.log(e.message);
+            }
+        });
+
+        })(jQuery);
+                }
+    
+

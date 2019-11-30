@@ -1,0 +1,16 @@
+extends layout
+
+
+
+block content
+
+    h1 #{user.voornaam + " " + user.achternaam}
+
+    a(href='/user/me/resultaten')
+        button Mijn Resultaten
+
+    a(href='/user/logout')
+        button UITLOGGEN
+
+    
+

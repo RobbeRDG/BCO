@@ -1,0 +1,35 @@
+extends layout
+
+block content
+
+  if topError
+    h3 Er is iets fout gegaan
+
+  h1 #{title}
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='voornaam') Voornaam:
+      input#name.form-control(type='text' placeholder='Dirk' name='voornaam' value=(undefined===voornaam ? '' : voornaam))
+    div.form-group
+      label(for='achternaam') Achternaam:
+      input#name.form-control(type='text' placeholder='Mertens' name='achternaam' value=(undefined===achternaam ? '' : achternaam))
+    div.form-group
+      label(for='email') E-mail:
+      input#name.form-control(type='email' placeholder='ex: voorbeeld@mail.com' name='email' value=(undefined===email ? '' : email))
+    div.form-group
+      label(for='password') Wachtwoord:
+      input#name.form-control(type='password' placeholder='123456' name='password' value=(undefined===password ? '' : password))
+    button.btn.btn-primary(type='submit') Submit
+  br
+  br
+
+  if errors 
+   ul
+    for error in errors
+     li!= error.msg
+  if alGeregistreerd
+    p#Error Dit E-mail adres is al geregistreerd, wil je 
+        a(href='/user/login') INLOGGEN?
+      
+

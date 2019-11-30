@@ -1,0 +1,27 @@
+extends layout
+
+
+
+block content
+
+  if topError
+    h3#Error Er is iets fout gegaan
+
+  h1 #{title}
+  if fouteGegevens 
+    p#Error Fout wachtwoord en/of E-mail adres
+
+  form(method='POST' action='')
+    div.form-group
+        label(for='email') E-mail:
+        input#name.form-control(type='email', placeholder='ex: voorbeeld@mail.com' name='email' value=(undefined===email ? '' : email))
+    div.form-group   
+        label(for='password') Password:
+        input#name.form-control(type='password', placeholder='123456' name='password' value=(undefined===password ? '' : password))
+    button.btn.btn-primary(type='submit') Submit
+  br
+  br
+  p Nog geen account? 
+        a(href='/user') REGISTREREN
+
+  
