@@ -41,10 +41,10 @@ app.use((req, res, next) => {
 
 
 //Set up mongoose connection
+const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-const mongoose = require('mongoose');
 const dev_db_url = 'mongodb+srv://Dairo:XBi8uM%26Q4L%23fpV-@cluster0-jxapn.gcp.mongodb.net/test?retryWrites=true&w=majority';
 const  mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
