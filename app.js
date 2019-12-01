@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var userRouter = require('./routes/users');
 var compression = require('compression');
 var helmet = require('helmet');
+const MongoStore = require('connect-mongo')(session);
 
 
 
@@ -19,16 +20,6 @@ process.env.NODE_ENV = 'production';
 
 app.use(cookieParser());
 
-//Session setup
-app.use(session({
-  key: 'user_sid',
-  secret: 'somerandonstuffs',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-      expires: 600000
-  }
-}));
 
 // This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
 // This usually happens when you stop your express server after login, your cookie still remains saved in the browser.
@@ -38,6 +29,8 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+
 
 
 //Set up mongoose connection
@@ -50,6 +43,29 @@ const  mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+//Session setup
+app.set('trust proxy', 1);
+
+app.use(session({
+  key: 'user_sid',
+  secret: 'somerandonstuffs',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+      secure: true,
+      expires: 600000
+  },
+  store: new MongoStore({ mongooseConnection: db })
+}));
+
+app.use(function(req,res,next){
+  if(!req.session){
+      return next(new Error('Oh no')) //handle error
+  }
+  next() //otherwise continue
+  });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
