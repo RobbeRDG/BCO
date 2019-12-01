@@ -111,10 +111,7 @@ exports.resultaten_create_post = [
     }
 ]
 
-// Handle resultaten delete on POST.
-exports.resultaten_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: resultaten delete POST');
-};
+
 
 
 // Display resultaten delete form on GET.
@@ -122,6 +119,11 @@ exports.resultaten_delete_get = function(req, res) {
     res.send('NOT IMPLEMENTED: resultaten delete GET');
 };
 
+/*
+// Handle resultaten delete on POST.
+exports.resultaten_delete_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: resultaten delete POST');
+};
 
 
 // Display resultaten update form on GET.
@@ -133,3 +135,5 @@ exports.resultaten_update_get = function(req, res) {
 exports.resultaten_update_post = function(req, res) {
     res.send('NOT IMPLEMENTED: resultaten update POST');
 };
+
+*/
