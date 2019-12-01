@@ -56,7 +56,7 @@ app.use(session({
       secure: true,
       expires: 600000
   },
-  store: new MongoStore({ mongooseConnection: db })
+  //store: new MongoStore({ mongooseConnection: db })
 }));
 
 app.use(function(req,res,next){
