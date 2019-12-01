@@ -49,16 +49,20 @@ block content
   br
   h3 Extra Tips
   p Voor een meer hulp bij het kiezen van de racket kan je klikken op de afbeelding. Stel zeker ook vragen aan de medewerker van dienst in de winkel waat je hem zal kopen!
-
+  br
+  br
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
   script.
     $(document).ready(function(){
-    $.ajax({url: "http://quotes.rest/qod.json?category=sports", success: function(result){
-    $("#div1").html(result.contents.quotes[0].quote);
-    $("#div2").html("~ " + result.contents.quotes[0].author);
-    }});
-    });
-  h3 Quote Of The Day
+      $("button").click(function(){
+        $.ajax({url: "http://quotes.rest/qod.json?category=sports", success: function(result){
+        $("#div1").html(result.contents.quotes[0].quote);
+        $("#div2").html("~ " + result.contents.quotes[0].author);
+        }});
+      });
+      });
+  button
+    h4 Quote Of The Day
   h4
     #div1
   h5
