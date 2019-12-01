@@ -31,7 +31,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-      secure: true,
+      HttpOnly: false,
       expires: 600000
   },
 }));
@@ -44,6 +44,11 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+if (app.get('env') === 'production') {
+  app.set('trust proxy', 1) // trust first proxy
+  sess.cookie.secure = true // serve secure cookies
+}
 
 
 //Set up mongoose connection
