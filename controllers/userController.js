@@ -145,6 +145,7 @@ exports.logout_user = async(req, res) => {
     // Log user out of the application
   try {
         if (req.session.user && req.cookies.user_sid) {
+            req.session.destroy();
             res.clearCookie('user_sid');
             res.redirect('/')
         } else {
