@@ -59,7 +59,6 @@ exports.create_user = [
                 }
                 
                 res.redirect('/')
-                res.status(201).send({ user })
             } catch (error) {
                 res.render('register_form', { 
                     title: 'Registreer',
@@ -123,7 +122,7 @@ exports.login_user = [
             email: user.email,
             id: userID
         }
-        res.render( 'index' ,  { voorNaam : user.voornaam } )
+        res.redirect('/')
     } catch (error) {
         res.render('login_form', { 
             title: 'Inloggen',
