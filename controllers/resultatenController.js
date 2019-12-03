@@ -118,8 +118,18 @@ exports.resultaten_create_post = [
 
 // Display resultaten delete form on GET.
 exports.resultaten_delete_get = (req, res) => {
+    try {
+        Resultaten.deleteOne(req.params.id)
+        res.redirect('/me/resultaten')
+    } catch(error) {
+        console.log(error)
+        res.status(400).send({
+            message: 'Er ging iets mis'
+         });
+    }
+
     async.parallel({
-		resultaten: function(callback) {
+		function(callback) {
             Resultaten.deleteOne(req.params.id)
               .exec(callback);
         },		
