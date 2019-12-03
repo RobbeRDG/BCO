@@ -102,11 +102,9 @@ exports.resultaten_create_post = [
             }
             await resultaat.save();
             res.redirect('/resultaten')
-            res.status(200).send(resultaat)
         } catch (error) {
             res.render('resultaat_form', {topError: "Er is iets fout gegaan" });
             console.log(error)
-            res.status(400).send(error)
         }
     }
 ]
