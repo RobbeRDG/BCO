@@ -103,8 +103,8 @@ exports.resultaten_create_post = [
             await resultaat.save();
             res.redirect('/resultaten')
         } catch (error) {
-            res.render('resultaat_form', {topError: "Er is iets fout gegaan" });
             console.log(error)
+            res.render('resultaat_form', {topError: "Er is iets fout gegaan" });
         }
     }
 ]

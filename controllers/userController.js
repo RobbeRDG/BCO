@@ -24,7 +24,6 @@ exports.create_user = [
     validator.sanitizeBody( 'password' ).escape(),
 
     async(req, res) => {
-        console.log(req.body)
         const errors = validator.validationResult(req)
         const temp = await User.findByEmail(req.body.email);
         if(!errors.isEmpty()){
@@ -60,12 +59,11 @@ exports.create_user = [
                 
                 res.redirect('/')
             } catch (error) {
+                console.log(error)
                 res.render('register_form', { 
                     title: 'Registreer',
                     topError: "Er is iets fout gegaan" 
                 })
-                console.log(error)
-                res.status(400).send(error)
             }
         } else {
             res.render('register_form', {
@@ -124,12 +122,11 @@ exports.login_user = [
         }
         res.redirect('/')
     } catch (error) {
+        console.log(error)
         res.render('login_form', { 
             title: 'Inloggen',
             topError: "Er is iets fout gegaan" 
         })
-        console.log(error)
-        res.status(400).send(error)
     }
 }
 ]
@@ -145,12 +142,12 @@ exports.logout_user = async(req, res) => {
   try {
         if (req.session.user && req.cookies.user_sid) {
             req.session.destroy();
-            //res.clearCookie('user_sid');
             res.redirect('/')
         } else {
             res.redirect('/login');
         }
     } catch (error) {
-        res.status(500).send(error)
+        console.log(error);
+        res.redirect('/me', { topError: true });   
     }
 }

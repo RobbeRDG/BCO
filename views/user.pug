@@ -3,6 +3,8 @@ extends layout
 
 
 block content
+    if topError
+        h3#Error Er is iets fout gegaan
 
     h1 #{user.voornaam + " " + user.achternaam}
 
