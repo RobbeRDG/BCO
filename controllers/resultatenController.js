@@ -50,7 +50,11 @@ exports.resultaten_detail = function(req, res, next) {
             return next(err);
         }
         // Successful, so render
-        res.render('resultaten_detail', { title: 'Resultaten Detail', resultaten: results.resultaten } );
+        var canDelete = false
+        if(req.session.user) {
+            canDelete = req.session.user.id == results.resultaten.Maker ? true : false;
+        }
+        res.render('resultaten_detail', { title: 'Resultaten Detail', resultaten: results.resultaten, canDelete: canDelete } );
     });
 
 };
@@ -115,8 +119,23 @@ exports.resultaten_create_post = [
 
 
 // Display resultaten delete form on GET.
-exports.resultaten_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: resultaten delete GET');
+exports.resultaten_delete_get = (req, res) => {
+    async.parallel({
+		resultaten: function(callback) {
+            Resultaten.deleteOne(req.params.id)
+              .exec(callback);
+        },		
+	},function(err, results) {
+        if (err) { return next(err); }
+        if (results.resultaten==null) { // No results.
+            var err = new Error('Resultaat not found');
+            err.status = 404;
+            return next(err);
+        }
+        // Successful, so render
+        res.redirect('/resultaten');
+    });
+
 };
 
 /*

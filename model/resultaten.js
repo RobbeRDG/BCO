@@ -48,5 +48,11 @@ Resschema
   return '/resultaten/' + this._id;
 });
 
+Resschema
+.virtual('deleteUrl')
+.get(function () {
+  return '/resultaten/' + this._id + '/delete';
+});
+
 //Export model
 module.exports = mongoose.model('Resultaten', Resschema);
