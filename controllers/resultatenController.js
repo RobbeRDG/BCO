@@ -127,23 +127,6 @@ exports.resultaten_delete_get = (req, res) => {
             message: 'Er ging iets mis'
          });
     }
-
-    async.parallel({
-		function(callback) {
-            Resultaten.deleteOne(req.params.id)
-              .exec(callback);
-        },		
-	},function(err, results) {
-        if (err) { return next(err); }
-        if (results.resultaten==null) { // No results.
-            var err = new Error('Resultaat not found');
-            err.status = 404;
-            return next(err);
-        }
-        // Successful, so render
-        res.redirect('/resultaten');
-    });
-
 };
 
 /*
