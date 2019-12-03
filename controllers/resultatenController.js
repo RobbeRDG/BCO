@@ -119,7 +119,7 @@ exports.resultaten_create_post = [
 // Display resultaten delete form on GET.
 exports.resultaten_delete_get = async(req, res) => {
     try {
-        await Resultaten.deleteOne({ '_id': req.params.id })
+        await Resultaten.deleteOne({ '_id': '0' })
         res.redirect('/user/me/resultaten')
     } catch(error) {
         console.log(error)
