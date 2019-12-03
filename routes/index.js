@@ -54,8 +54,6 @@ router.get('/about/bestuur/:id', bestuur_controller.bestuur_detail);
 router.get('/about/bestuur', bestuur_controller.bestuur_list);
 
 /// resultaten ROUTES ///
-
-
 // GET request for creating a resultaat. NOTE This must come before route that displays Genre (uses id).
 router.get('/resultaten/create', canEditResultaat, resultaten_controller.resultaten_create_get);
 
@@ -63,16 +61,7 @@ router.get('/resultaten/create', canEditResultaat, resultaten_controller.resulta
 router.post('/resultaten/create', canEditResultaat, resultaten_controller.resultaten_create_post);
 // GET request to delete resultaat.
 router.get('/resultaten/:id/delete', resultaten_controller.resultaten_delete_get);
-/*
-// POST request to delete resultaat.
-router.post('/resultaten/:id/delete', resultaten_controller.resultaten_delete_post);
 
-// GET request to update resultaat.
-router.get('/resultaten/:id/update', resultaten_controller.resultaten_update_get);
-
-// POST request to update resultaat.
-router.post('/resultaten/:id/update', resultaten_controller.resultaten_update_post);
-*/
 // GET request for one resultaat.
 router.get('/resultaten/:id', resultaten_controller.resultaten_detail);
 

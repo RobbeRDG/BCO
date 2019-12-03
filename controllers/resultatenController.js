@@ -119,29 +119,11 @@ exports.resultaten_create_post = [
 // Display resultaten delete form on GET.
 exports.resultaten_delete_get = async(req, res) => {
     try {
-        await Resultaten.deleteOne({ '_id': '0' })
+        await Resultaten.deleteOne({ '_id': req.params.id })
         res.redirect('/user/me/resultaten')
     } catch(error) {
-        console.log(error)
-        //res.redirect('/user/me/resultaten')
+        res.redirect('/user/me/resultaten')
     }
 };
 
-/*
-// Handle resultaten delete on POST.
-exports.resultaten_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: resultaten delete POST');
-};
 
-
-// Display resultaten update form on GET.
-exports.resultaten_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: resultaten update GET');
-};
-
-// Handle resultaten update on POST.
-exports.resultaten_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: resultaten update POST');
-};
-
-*/
