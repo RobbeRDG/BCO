@@ -1,6 +1,6 @@
-var Resultaten = require('../model/resultaten');
+const Resultaten = require('../model/resultaten');
 const validator = require('express-validator');
-var async = require('async');
+const async = require('async');
 
 // Display list of all resultatens.
 exports.resultaten_list = function(req, res, next) {

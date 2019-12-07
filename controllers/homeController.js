@@ -1,9 +1,7 @@
-var Bestuur = require('../model/bestuur');
-var Resultaten = require('../model/resultaten');
-var Genre = require('../model/home');
-
-
-var async = require('async');
+const Bestuur = require('../model/bestuur');
+const Resultaten = require('../model/resultaten');
+const Genre = require('../model/home');
+const async = require('async');
 
 exports.index = function(req, res) {   
     

@@ -1,14 +1,15 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const canEditResultaat = require('../middleware/canEditResultaat');
+const canDelete = require('../middleware/canDelete');
 
 // Require controller modules.
-var home_controller = require('../controllers/homeController');
-var bestuur_controller = require('../controllers/bestuurController');
-var resultaten_controller = require('../controllers/resultatenController');
-var about_controller = require('../controllers/aboutController');
-var getstarted_controller = require('../controllers/getstartedController');
-var contact_controller = require('../controllers/contactController');
+const home_controller = require('../controllers/homeController');
+const bestuur_controller = require('../controllers/bestuurController');
+const resultaten_controller = require('../controllers/resultatenController');
+const about_controller = require('../controllers/aboutController');
+const getstarted_controller = require('../controllers/getstartedController');
+const contact_controller = require('../controllers/contactController');
 
 /// home ROUTES ///
 
@@ -60,7 +61,7 @@ router.get('/resultaten/create', canEditResultaat, resultaten_controller.resulta
 //POST request for creating resultaat.
 router.post('/resultaten/create', canEditResultaat, resultaten_controller.resultaten_create_post);
 // GET request to delete resultaat.
-router.get('/resultaten/:id/delete', resultaten_controller.resultaten_delete_get);
+router.get('/resultaten/:id/delete', canDelete, resultaten_controller.resultaten_delete_get);
 
 // GET request for one resultaat.
 router.get('/resultaten/:id', resultaten_controller.resultaten_detail);

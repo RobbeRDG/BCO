@@ -1,5 +1,5 @@
-var Bestuur = require('../model/bestuur');
-var async = require('async');
+const Bestuur = require('../model/bestuur');
+const async = require('async');
 
 // Display list of all Books.
 exports.bestuur_list = function(req, res, next) {
