@@ -55,13 +55,13 @@ block content
   script.
     $(document).ready(function(){
       $("button").click(function(){
-        $.ajax({url: "https://quotes.rest/qod.json?category=sports", success: function(result){
+        $.ajax({url: "https://quotes.rest/qod.json?category=inspire", success: function(result){
         $("#div1").html(result.contents.quotes[0].quote);
         $("#div2").html("~ " + result.contents.quotes[0].author);
         }});
       });
       });
-  button
+  button.btn.btn-info(type='button')
     h4 Quote Of The Day
   h4
     #div1

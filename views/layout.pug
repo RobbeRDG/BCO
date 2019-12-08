@@ -11,21 +11,36 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='icon' href='/images/BCOico.png')
   body
-    div(class='topnav')
-      a(href='/') 
-         img.ui.mini.rounded.image(src='/images/BCO.jpg' alt="BCO" width= auto height = 18)
-      a(href='/') Home
-      a(href='/about') Over onze Club
-      a(href='/getstarted') Get Started
-      a(href='/resultaten') Resultaten
-      a(href='/contact') Contact
-      .containerL
-        a(href='/user/login' align='right') Account
+    nav(class='navbar navbar-inverse')
+      div(class='container-fluid')
+        div(class="navbar-header")
+          button(class='navbar-toggle' type='button' data-toggle='collapse' data-target='#myNavbar')
+            span(class='icon-bar')
+            span(class='icon-bar')
+            span(class='icon-bar')
+          a(class='navbar-brand' href='/')
+            img( src='/images/BCO.jpg' alt="BCO" style='max-width:75px; margin-top: -7px;')
+        div(class='collapse navbar-collapse' id='myNavbar')
+          ul(class='nav navbar-nav')
+            li
+              a(href='/') Home
+            li
+              a(href='/about') Over onze Club
+            li
+              a(href='/getstarted') Get Started
+            li
+              a(href='/resultaten') Resultaten
+            li
+              a(href='/contact') Contact
+            //.containerL
+          ul(class='nav navbar-nav navbar-right')
+            li
+              a(href='/user/login' align='right') Account
 
     div(class='col-sm-10')
       block content
     div(class='col-sm-2 hidden-sm hidden-xs')#twitter
-      a.twitter-timeline(data-height='2000' href='https://twitter.com/yonex_badminton?ref_src=twsrc%5Etfw') Tweets by yonex_badminton
+      a.twitter-timeline(data-height='2000' data-chrome="noscrollbar" href='https://twitter.com/yonex_badminton?ref_src=twsrc%5Etfw') Tweets by yonex_badminton
       script(async='' src='https://platform.twitter.com/widgets.js' charset='utf-8')
     footer(class= 'navbar navbar-default navbar-fixed-bottom')
       div(class='container')
