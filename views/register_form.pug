@@ -3,7 +3,7 @@ extends layout
 block content
 
   if topError
-    h3 Er is iets fout gegaan
+    h3#Error Er is iets fout gegaan
 
   h1 #{title}
 
@@ -27,7 +27,7 @@ block content
   if errors 
    ul
     for error in errors
-     li#error!= error.msg
+     li#Error!= error.msg
   if alGeregistreerd
     p#Error Dit E-mail adres is al geregistreerd, wil je 
         a(href='/user/login') INLOGGEN?
