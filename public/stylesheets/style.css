@@ -21,6 +21,12 @@ a {
   justify-content: space-around; 
 }
 
+.navbar {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
 #Error{
 	color:red;
 }
