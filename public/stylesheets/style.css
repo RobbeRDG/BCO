@@ -45,6 +45,7 @@ a {
   flex: 1.5;
   font-size: 1.3em;
   align-items: 'right';
+  padding: 0px 3px 0px
 }
 
 #scoreElement{
