@@ -1,8 +1,12 @@
+
 body {
   margin-top : 0px;
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+
+
 
 
 a {
@@ -143,9 +147,5 @@ a {
   color:#002c6e;
 }
 
-@media only screen and (max-width: 600px) {
-  #twitter{
-    height: 50;
-  }
-}
+
 }
