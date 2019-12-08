@@ -10,6 +10,7 @@ exports.resultaten_list = function(req, res, next) {
     .exec(function (err, list_resultaten) {
       if (err) { return next(err); }
       //Successful, so render
+      list_resultaten.reverse();
       res.render('resultaten_list', { title: 'Resultaten List', resultaten_list: list_resultaten });
     });
     
