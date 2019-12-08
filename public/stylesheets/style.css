@@ -2,7 +2,8 @@
 body {
   margin-top : 0px;
   padding: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .container{
@@ -10,7 +11,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #5bc0de;
 }
 
 .container{
@@ -32,11 +33,34 @@ a {
 }
 
 #resultatenStyle{
+  display: flex;
   color:#002c6e;
+  align-items: center;
+  padding: 0;
+  text-align: center;
+}
+
+#teamElement{
+  margin:0px;
+  flex: 1.5;
+  font-size: 1.3em;
+  align-items: 'right';
+}
+
+#scoreElement{
+  margin:0px 20px 0px;
+  background: #222222;
+  color: white;
+  height: 60px;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.5em;
+  flex: 1;
+  padding: 19px 0px 19px
 }
 
 #opmerkingHeader{
-  color: #fcac17
+  color: #fcac17;
 }
 
 #opmerking{
@@ -47,3 +71,9 @@ a {
 #resultaatTitel{
   font-weight: 300;
 }
+
+.embedded{
+  display: flex;
+  align-items: 'left';
+}
+

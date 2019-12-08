@@ -18,13 +18,25 @@ var Resschema = new Schema(
 Resschema
 .virtual('Resultaat')
 .get(function () {
-  return this.ScoreT1 +' - '+this.ScoreT2;
+  return '   '+this.ScoreT1 +' - '+this.ScoreT2+'   ';
 });
 
 Resschema
 .virtual('Teams')
 .get(function() {
 	return this.Team1 + ' tegen ' + this.Team2;
+});	
+
+Resschema
+.virtual('team1')
+.get(function() {
+	return this.Team1;
+});	
+
+Resschema
+.virtual('team2')
+.get(function() {
+	return this.Team2;
 });	
 
 Resschema

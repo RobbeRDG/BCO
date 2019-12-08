@@ -8,14 +8,16 @@ block content
 
   br
   br
-  ul
+  ul(class='list-group')
     each resultaat in resultaten_list
-      li 
-        a(href=resultaat.url)#resultatenStyle #{resultaat.AltScore} 
+      a(class='list-group-item' href=resultaat.url)#resultatenStyle
+        p#teamElement #{resultaat.team1}
+        p#scoreElement #{resultaat.Resultaat} 
+        p#teamElement #{resultaat.team2}
         
 
     else
-      li Er zijn geen resultaten
+      a(class='list-group-item') Er zijn geen resultaten
 
 
   br
