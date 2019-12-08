@@ -139,12 +139,6 @@ a {
 	color:red;
 }
 
-.box {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
-
 #logoutbtn{
   margin-top: 50;
 }

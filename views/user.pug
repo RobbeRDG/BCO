@@ -7,13 +7,10 @@ block content
         h3#Error Er is iets fout gegaan
 
     h1 #{user.voornaam + " " + user.achternaam}
-    div(class='box')
-        h3 Resultaten bekijken:
-        a(href='/user/me/resultaten')
-            button.btn.btn-info(type='button') Mijn Resultaten
+    
+    a(href='/user/me/resultaten')
+        button.btn.btn-info(type='button') Mijn Resultaten
 
-    br
-    br
     
     a(href='/user/logout')#logoutbtn
         button.btn.btn-info(type='button') Uitloggen
