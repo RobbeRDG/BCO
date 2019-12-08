@@ -138,4 +138,12 @@ a {
 #Error{
 	color:red;
 }
+.button{
+  
+}
+@media only screen and (max-width: 600px) {
+  #twitter{
+    height: 50;
+  }
+}
 }
