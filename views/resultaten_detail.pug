@@ -3,16 +3,19 @@ extends layout
 block content
 
   h1 Resultaat
-  h1  #{resultaten.Teams} :  #{resultaten.Resultaat}
+  h2  #{resultaten.Teams} :  #{resultaten.Resultaat}
   
-  div(style='margin-left:5px;margin-top:20px')
+  div(class='resultaat' style='margin-left:5px;margin-top:20px')
 
-    h2 Opmerkingen
-      h4 #{resultaten.Opme}
+    h4#opmerkingHeader Opmerkingen:
+      h4#opmerking #{resultaten.Opme}
+    
+    br
+    br
 
     if canDelete
       a(href=resultaten.deleteUrl)
-        button.btn.btn-info(type='button') VERWIJDEREN
+        button.btn.btn-danger(type='button') VERWIJDEREN
     
 
   br
