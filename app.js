@@ -16,7 +16,7 @@ const MongoStore = require('connect-mongo')(session);
 const app = express();
 
 app.use(helmet());
-app.use(compression());
+//app.use(compression());
 
 app.use(cookieParser());
 
@@ -35,7 +35,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 //Session setup
-
 app.use(session({
   key: 'user_sid',
   secret: 'somerandonstuffs',
@@ -61,9 +60,6 @@ app.use((req, res, next) => {
 if (app.get('env') === 'production') {
   app.set('trust proxy', 1) // trust first proxy
 }
-
-
-
 
 
 // view engine setup
