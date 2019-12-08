@@ -3,12 +3,13 @@ extends layout
 block content
 
   h1 Resultaat
-  h2  #{resultaten.Teams} :  #{resultaten.Resultaat}
+  h2#resultaatTitel  #{resultaten.Teams} :  #{resultaten.Resultaat}
   
   div(class='resultaat' style='margin-left:5px;margin-top:20px')
 
-    h4#opmerkingHeader Opmerkingen:
-      h4#opmerking #{resultaten.Opme}
+    if resultaten.Opme
+      h4#opmerkingHeader Opmerkingen:
+        h4#opmerking #{resultaten.Opme}
     
     br
     br

@@ -6,11 +6,6 @@ block content
     h3 Er is iets fout gegaan
   
   h1 Nieuw resultaat
-  if errors 
-   ul
-    for error in errors
-     li#Error!= error.msg
-
   form(method='POST' action='')
     div.form-group
       label(for='team1') Team 1:
@@ -28,6 +23,11 @@ block content
       label(for='opmerking') Opmerkingen:
       input#name.form-control(type='text' name='opmerking' value=(undefined===opmerking ? '' : opmerking))
     button.btn.btn-info(type='submit') Submit
+
+    if errors 
+   ul
+    for error in errors
+     li#Error!= error.msg
 
 
   br
