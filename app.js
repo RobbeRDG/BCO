@@ -16,8 +16,7 @@ const MongoStore = require('connect-mongo')(session);
 const app = express();
 
 app.use(helmet());
-
-process.env.NODE_ENV = 'production';
+app.use(compression());
 
 app.use(cookieParser());
 
