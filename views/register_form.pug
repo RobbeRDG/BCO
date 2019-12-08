@@ -25,9 +25,9 @@ block content
   br
 
   if errors 
-   ul#error
+   ul
     for error in errors
-     li!= error.msg
+     li#error!= error.msg
   if alGeregistreerd
     p#Error Dit E-mail adres is al geregistreerd, wil je 
         a(href='/user/login') INLOGGEN?
